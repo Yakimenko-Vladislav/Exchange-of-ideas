@@ -18,11 +18,49 @@
         {% csrf_token %}
         <h4>Как Вы оцениваете данную идею?</h4>
         <p>|
-            {% for count in [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5] %}
-                <label>
-                    <input type="radio" name="rating" value="{{ count }}" required> {{ count }} |
-                </label>
-            {% endfor %}
+            <label>
+                <input type="radio" required name="rating" value="-5"> -5 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="-4"> -4 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="-3"> -3 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="-2"> -2 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="-1"> -1 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="0"> 0 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="1"> 1 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="2"> 2 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="3"> 3 |
+            </label>
+
+            <label>
+                <input type="radio" required name="rating" value="4"> 4 |
+            </label>
+            
+            <label>
+                <input type="radio" required name="rating" value="5"> 5 |
+            </label>
         </p>
         {% if check %}
             <button type="submit" class="btn btn-primary">Оценить</button>
