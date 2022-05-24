@@ -39,8 +39,12 @@ def create(request):
     if request.method == 'POST':
         form = IdeaForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('homepage')
+            inventor = Idea.objects.filter(author=form.cleaned_data['author'])
+            being = inventor.exists()
+            if not being or (being and form.cleaned_data['password'] == inventor[0].password):
+                form.save()
+                return redirect('homepage')
+            error = 'Неверно введенные данные'
         else:
             error = 'Неверно введенные данные'
     form = IdeaForm()
