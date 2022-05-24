@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-an@z&u%5b_3a5r90qn2&9(+!u(zm9c(hkivh6(w+)8@urvo1=-'
+SECRET_KEY = 'django-insecure-=_9ckt69wqx(*k#&@=3l*a!u7%rnq7vn@@(=p^pxs@e$=xgnj@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['project-storage-of-ideas.herokuapp.com']
 
@@ -124,6 +124,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ["https://project-storage-of-ideas.herokuapp.com"]
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
