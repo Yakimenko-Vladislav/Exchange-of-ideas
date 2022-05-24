@@ -1,0 +1,19 @@
+{% extends 'title/sample.html' %}
+
+{% block title %}
+Создать новую идею
+{% endblock %}
+
+{% block core %}
+    <h1 class="mt-6">_______________</h1>
+    <h1 class="mt-5">Создать новую идею:</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.moniker }}<br>
+        {{ form.author }}<br>
+        {{ form.password }}<br>
+        {{ form.content }}<br>
+        <button type="submit" class="btn btn-success">Опубликовать</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

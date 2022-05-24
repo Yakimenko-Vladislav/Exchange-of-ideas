@@ -1,0 +1,17 @@
+{% extends 'title/sample.html' %}
+
+{% block title %}
+Создать новую идею
+{% endblock %}
+
+{% block core %}
+    <h1 class="mt-6">_______________</h1>
+    <h1 class="mt-5">Удалить идею {{ point.moniker }}:</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h1 class="display-4">Здравствуйте, {{ point.author }}!</h1>
+        {{ form.password }}<br>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

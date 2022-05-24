@@ -1,0 +1,24 @@
+{% extends 'title/sample.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block core %}
+    <h1 class="mt-6">_______________</h1>
+    <h1 class="mt-5">Список идей:</h1>
+    {% if ideas %}
+        {% for el in ideas %}
+            <div name="{{ el.moniker }}" rel="tag" class="alert alert-warning mt-2">
+                <a href="{% url 'idea' %}?point={{ el.id }}">
+                    {{ el.moniker }}
+                </a>
+                <p>
+                    Рейтинг: {{ el.rating }}; Автор: {{ el.author }}
+                </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Пока нет доступных идей!</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'title/sample.html' %}
+
+{% block title %}
+Изменить идею {{ point.moniker }}
+{% endblock %}
+
+{% block core %}
+    <h1 class="mt-6">_______________</h1>
+    <h1 class="mt-5">Изменить идею {{ point.moniker }}:</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h1 class="display-4">Здравствуйте, {{ point.author }}!</h1>
+        {{ form.password }}<br>
+        {{ form.moniker }}<br>
+        {{ form.content }}<br>
+        <button type="submit" class="btn btn-primary">Изменить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'title/sample.html' %}
+
+{% block title %}
+{{ point.moniker }}
+{% endblock %}
+
+{% block core %}
+    <h1 class="mt-6">_______________</h1>
+    <h1 class="mt-5">{{ point.moniker }}</h1>
+    <div rel="tag" class="alert alert-warning mt-2">
+        <h5>{{ point.content }}</h5>
+    </div>
+    <a class="btn btn-primary" href="{% url 'modifying' %}?point={{ point.id }}" role="button">Изменить</a>
+    <a class="btn btn-danger" href="{% url 'deleting' %}?point={{ point.id }}" role="button">Удалить</a>
+    <h5>________________</h5>
+    <h5> Рейтинг идеи: {{ point.rating }}</h5>
+    <form method="post">
+        {% csrf_token %}
+        <h4>Как Вы оцениваете данную идею?</h4>
+        <p>|
+            <input type="radio" name="rating" value="-5"> -5 |
+            <input type="radio" name="rating" value="-4"> -4 |
+            <input type="radio" name="rating" value="-3"> -3 |
+            <input type="radio" name="rating" value="-2"> -2 |
+            <input type="radio" name="rating" value="-1"> -1 |
+            <input type="radio" name="rating" value="0"> 0 |
+            <input type="radio" name="rating" value="1"> 1 |
+            <input type="radio" name="rating" value="2"> 2 |
+            <input type="radio" name="rating" value="3"> 3 |
+            <input type="radio" name="rating" value="4"> 4 |
+            <input type="radio" name="rating" value="5"> 5 |
+        </p>
+        {% if check %}
+            <button type="submit" class="btn btn-primary">Оценить</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">Изменить оценку</button>
+        {% endif %}
+    </form>
+    <span>{{ error }}</span>
+{% endblock %}
