@@ -17,7 +17,7 @@ def idea(request):
     address = address.filter(nickname=point.moniker)
     check = not address.exists()
     if request.method == 'POST' and check:
-        appraise = int(request.POST.get('rating', default=0))
+        appraise = int(request.POST.get('rating'))
         point.rating = point.rating + appraise
         point.save()
         address = Reviewer(ip=get_client_ip(request)[0], nickname=point.moniker, appraising=appraise)
@@ -25,7 +25,7 @@ def idea(request):
         return redirect('homepage')
     elif request.method == 'POST':
         address = address[0]
-        appraise = int(request.POST.get('rating', default=0))
+        appraise = int(request.POST.get('rating'))
         point.rating = point.rating + appraise - address.appraising
         point.save()
         address.appraising = appraise
