@@ -14,13 +14,13 @@ def idea(request):
     point = request.GET.get('point')
     point = Idea.objects.filter(id=point)[0]
     address = Reviewer.objects.filter(ip=get_client_ip(request)[0])
-    address = address.filter(nickname=point.moniker)
+    address = address.filter(nickname=point.id)
     check = not address.exists()
     if request.method == 'POST' and check:
         appraise = int(request.POST.get('rating'))
         point.rating = point.rating + appraise
         point.save()
-        address = Reviewer(ip=get_client_ip(request)[0], nickname=point.moniker, appraising=appraise)
+        address = Reviewer(ip=get_client_ip(request)[0], nickname=point.id, appraising=appraise)
         address.save()
         return redirect('homepage')
     elif request.method == 'POST':
