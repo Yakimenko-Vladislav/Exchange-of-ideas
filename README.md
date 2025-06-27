@@ -1,2 +1,2 @@
-# some_bad_and_useless_stuff
+# Exchange of ideas
 It is source code for the "exchange of ideas" project.
